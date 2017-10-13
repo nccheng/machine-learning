@@ -13295,7 +13295,7 @@ Make sure to keep track of the various features and conditions you tried before 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer</strong>: <em>Predictions have an accuracy of 80.81%.</em></p>
+<p><strong>Answer</strong>: <em>First, according to the prediction accuracy calculated in Question3 and the histogram of survival statistics of different ages in male passenges, I think that there is still a small margin in prediction accuracy that can be improved if we add another feature to help identify whether a young, male passenger survived or not. Therefore, I tried several features such as <strong>Pclass</strong>, <strong>Sibsp</strong>, <strong>Parch</strong>, <strong>Fare</strong>, and <strong>Embarked</strong> under the condition of ["Sex == 'male'", "Age &lt; 10"], and I found that the feature <strong>Sibsp</strong> can be applied for successfully seperating survival and non-survival passengers. Furthermore, I also fine-tuned the condition value of <strong>Age</strong> and <strong>SibSp</strong> to find a local maximum prediction accuracy. The final condition values that I choosed were <strong>Age &lt; 15.0</strong> and <strong>SibSp &lt; 3.0</strong>, and the predictions have an accuracy of 80.81%.</em></p>
 
 </div>
 </div>
