@@ -127,7 +127,7 @@ def channel_results(reduced_data, outliers, pca_samples):
 	Visualizes the PCA-reduced cluster data in two dimensions using the full dataset
 	Data is labeled by "Channel" and cues added for student-selected sample data
 	'''
-
+    
 	# Check that the dataset is loadable
 	try:
 	    full_data = pd.read_csv("customers.csv")
@@ -139,19 +139,18 @@ def channel_results(reduced_data, outliers, pca_samples):
 	channel = pd.DataFrame(full_data['Channel'], columns = ['Channel'])
 	channel = channel.drop(channel.index[outliers]).reset_index(drop = True)
 	labeled = pd.concat([reduced_data, channel], axis = 1)
-	
-	# Generate the cluster plot
+
+    # Generate the cluster plot
 	fig, ax = plt.subplots(figsize = (14,8))
 
 	# Color map
 	cmap = cm.get_cmap('gist_rainbow')
-
 	# Color the points based on assigned Channel
 	labels = ['Hotel/Restaurant/Cafe', 'Retailer']
 	grouped = labeled.groupby('Channel')
 	for i, channel in grouped:   
 	    channel.plot(ax = ax, kind = 'scatter', x = 'Dimension 1', y = 'Dimension 2', \
-	                 color = cmap((i-1)*1.0/2), label = labels[i], s=30);
+	                 color = cmap((i-1)*1.0/2), label = labels[i-1], s=30);
 	    
 	# Plot transformed sample points   
 	for i, sample in enumerate(pca_samples):
